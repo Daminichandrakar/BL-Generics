@@ -1,28 +1,23 @@
 package com.bl;
 
 public class MaxValue<T extends Comparable<T>> {
+	T[] values;
 
-	T value1, value2, value3;
-
-	public MaxValue(T value1, T value2, T value3) {
-		this.value1 = value1;
-		this.value2 = value2;
-		this.value3 = value3;
+	public MaxValue(T[] values) {
+		this.values = values;
 	}
 
-	public static <T extends Comparable<T>> T testMaximum(T value1, T value2, T value3) {
-		T max = value1;
-		if (value2.compareTo(max) > 0) {
-			max = value2;
-		}
-		if (value3.compareTo(max) > 0) {
-			max = value3;
+	public static <T extends Comparable<T>> T testMaximum(T... values) {
+		T max = values[0];
+		for (T t : values) {
+			if (t.compareTo(max) > 0)
+				max = t;
 		}
 		System.out.println("Maximum value is " + max);
 		return max;
 	}
 
 	public T findMax() {
-		return MaxValue.testMaximum(value1, value2, value3);
+		return MaxValue.testMaximum(values);
 	}
 }
