@@ -43,4 +43,22 @@ class MaxValueTestCase {
 		Assert.assertEquals(11.0f, value, 0.0f);
 	}
 
+	@Test
+	public void givenThreeNumber_WhenStringValue_ShouldReturnMaxAtFirstPosition() {
+		String value = max.findMax("peach", "apple", "banana");
+		Assert.assertEquals("peach", value);
+	}
+
+	@Test
+	public void givenThreeNumber_WhenStringValue_ShouldReturnMaxAtSecoundPosition() {
+		String value = max.findMax("apple", "peach", "banana");
+		Assert.assertEquals("peach", value);
+	}
+
+	@Test
+	public void givenThreeNumber_WhenStringValue_ShouldReturnMaxAtThirdPosition() {
+		String value = max.findMax("apple", "banana", "peach");
+		Assert.assertEquals("peach", value);
+	}
+
 }
